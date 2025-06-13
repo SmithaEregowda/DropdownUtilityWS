@@ -1,0 +1,17 @@
+BEGIN;
+
+TRUNCATE TABLE countries RESTART IDENTITY CASCADE;
+
+INSERT INTO countries (CountryID,CountryName,CreatedTS) values
+(1, 'India', CURRENT_TIMESTAMP),
+(2, 'United States', CURRENT_TIMESTAMP),
+(3, 'Canada', CURRENT_TIMESTAMP),
+(4, 'Australia', CURRENT_TIMESTAMP),
+(5, 'Germany', CURRENT_TIMESTAMP),
+(6, 'Brazil', CURRENT_TIMESTAMP),
+(7, 'Japan', CURRENT_TIMESTAMP),
+(8, 'South Africa', CURRENT_TIMESTAMP),
+(9, 'France', CURRENT_TIMESTAMP),
+(10, 'Mexico', CURRENT_TIMESTAMP);
+
+COMMIT;
