@@ -1,6 +1,8 @@
-const { DropDownUtilityController } = require('../controllers/dropDownUtilityController')
-const router = require('express').Router();
+import {DropDownUtilityController} from '../controllers/dropDownUtilityController.js'
+import express from 'express';
 
-router.get('/countries',DropDownUtilityController.getAllCountries);
+const DropdownUtilityRouter = express.Router();
 
-module.exports=router;
+DropdownUtilityRouter.get('/countries', DropDownUtilityController.getAllCountries);
+
+export { DropdownUtilityRouter };

@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import { Server } from 'http';
+import {DropdownUtilityRouter} from './routes/dropDownUtilityRoutes.js'
 
 dotenv.config(); //to use env variables
 const app= express();
@@ -14,11 +15,17 @@ app.use(bodyParser.urlencoded({extended:true}));
 //to allow cors domain
 app.use(cors());
 
-app.get('/',(req,res)=>{
-    res.send("App Running sucessfully....")
+app.get('/test',(req,res)=>{
+    console.log("Lool")
+    res.send("App Running sucessfully....");
+    res.status(200).json({
+            message: "App Running successfully",
+        })
 });
 
-const server =new Server();
+app.use("/api/v1", DropdownUtilityRouter);
+
+const server =new Server(app);
 
 
 server.listen(process.env.PORT , ()=>{
