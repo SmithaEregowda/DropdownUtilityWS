@@ -17,7 +17,7 @@ app.use(cors());
 
 app.get('/test',(req,res)=>{
     console.log("Lool")
-    res.send("App Running sucessfully....");
+    // res.send("App Running sucessfully....");
     res.status(200).json({
             message: "App Running successfully",
         })

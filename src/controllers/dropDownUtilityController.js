@@ -4,7 +4,6 @@ export class DropDownUtilityController{
         console.log("---- getting all countries -------")
         try{
             const result = await DropDownUtilityQuery.getAllCountiresFromDB();
-            console.log("results----->",result)
             res.status(200).json({
             countries: result
         })
