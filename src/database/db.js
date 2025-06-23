@@ -1,9 +1,11 @@
-import { Pool } from "pg";
+import pgPromise from "pg-promise";
 
-export const pool = new Pool({
-    user:'postgres',
-    password:'postgres',
-    database:'dropdown_utility_ws',
-    host:'localhost',
-    port:5432
-  });
+const pgp = pgPromise();
+const db = pgp({
+  user: 'postgres',
+  password: 'postgres',
+  database: 'dropdown_utility_ws',
+  host: 'localhost',
+  port: 5432
+});
+export default db;

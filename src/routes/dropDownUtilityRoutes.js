@@ -5,4 +5,12 @@ const DropdownUtilityRouter = express.Router();
 
 DropdownUtilityRouter.get('/countries', DropDownUtilityController.getAllCountries);
 
+
+DropdownUtilityRouter.get('/states/:countryId', DropDownUtilityController.getAllStatesFromCountryId);
+
+DropdownUtilityRouter.get('/states', DropDownUtilityController.getAllStates);
+
+
+DropdownUtilityRouter.get('/cites', DropDownUtilityController.getAllCites);
+
 export { DropdownUtilityRouter };
