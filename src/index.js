@@ -16,11 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //to allow cors domain
 app.use(cors());
 
-app.get('/test', (req, res) => {
-    console.log("Lool")
-    // res.send("App Running sucessfully....");
+app.get('/api/v1/status', (req, res) => {
     res.status(200).json({
-        message: "App Running successfully",
+        message: "App is  Running successfully",
     })
 });
 

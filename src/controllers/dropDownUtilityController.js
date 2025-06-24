@@ -44,4 +44,16 @@ export class DropDownUtilityController {
             next(err);
         }
     }
+
+     static async getAllCitesFromStateId(req, res, next) {
+        try {
+            const { stateId } = req.params;
+            const result = await DropDownUtilityQuery.getAllCitesFromStateId(stateId);
+            res.status(200).json({
+                cites: result
+            })
+        } catch (err) {
+            next(err);
+        }
+    }
 }
