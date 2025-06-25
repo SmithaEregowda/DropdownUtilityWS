@@ -15,5 +15,7 @@ DropdownUtilityRouter.get('/cites', DropDownUtilityController.getAllCites);
 
 DropdownUtilityRouter.get('/cites/:stateId', DropDownUtilityController.getAllCitesFromStateId);
 
+DropdownUtilityRouter.get('/logs', DropDownUtilityController.getAllLogs);
+
 
 export { DropdownUtilityRouter };

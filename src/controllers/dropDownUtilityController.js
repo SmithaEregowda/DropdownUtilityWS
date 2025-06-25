@@ -1,4 +1,7 @@
 import { DropDownUtilityQuery } from "../models/dropDownUtility.js";
+import fs from 'fs';
+import path from "path";
+import {fileURLToPath} from 'url';
 export class DropDownUtilityController {
     static async getAllCountries(req, res, next) {
         try {
@@ -52,6 +55,24 @@ export class DropDownUtilityController {
             res.status(200).json({
                 cites: result
             })
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    static async getAllLogs(req, res, next) {
+        try {
+           const __filename = fileURLToPath(import.meta.url);
+           const __dirname = path.dirname(__filename);
+           const logFilePath = path.join(__dirname, '..', 'logs', 'dev.log');
+           console.log("===== getting Logs =======");
+
+           fs.readFile(logFilePath,(err,data)=>{
+            if(err){
+                next(err);
+            };
+            res.type('text/plain').send(data);
+           });
         } catch (err) {
             next(err);
         }
