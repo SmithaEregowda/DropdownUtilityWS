@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import { Server } from 'http';
 import { DropdownUtilityRouter } from './routes/dropDownUtilityRoutes.js'
 import { ErrorHandler } from './middlewares/errorHandler.js';
+import logger from './configs/logger.js';
 
 dotenv.config(); //to use env variables
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/api/v1/status', (req, res) => {
+    logger.info("status: App is Running successfully")
     res.status(200).json({
         message: "App is  Running successfully",
     })

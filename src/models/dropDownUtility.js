@@ -1,5 +1,6 @@
 import db from '../database/db.js'
 import redisClient from "../configs/redisClient.js";
+import logger from '../configs/logger.js';
 
 export class DropDownUtilityQuery{
     static async getAllCountiresFromDB(){
@@ -58,17 +59,17 @@ export class DropDownUtilityQuery{
     }
 
      static async getAllCitesFromStateId(stateId){
-        console.log("---- fetching states from Id ---------");
+        logger.info("---- fetching states from Id ---------");
         const rediskey =`cites:${stateId}`;
         const cacheResults = await redisClient.get(rediskey);
         if(cacheResults){
-            console.log("----- Results From Cache ------",rediskey)
+            logger.info("----- Results From Cache ------",rediskey)
             return JSON.parse(cacheResults);
         }
         const results = await db.any(`SELECT * FROM cites WHERE StateId = $1;`,[stateId]);
         //240 is the exipration for the cache
         await redisClient.setEx(rediskey,240,JSON.stringify(results));
-        console.log("----- Results From DB ------")
+        logger.info("----- Results From DB ------")
         return results;
     }
 
