@@ -5,8 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava",
     "start": "nodemon src/index.js"
+  },
+  "ava": {
+    "files": [
+      "avatests/**/*.js"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -15,10 +20,15 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "lodash": "^4.17.21",
     "nodemon": "^3.1.10",
     "pg": "^8.16.0",
     "pg-promise": "^11.14.0",
     "redis": "^5.5.6",
     "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "ava": "^6.4.0",
+    "supertest": "^7.1.1"
   }
 }

@@ -33,4 +33,6 @@ const server = new Server(app);
 
 server.listen(process.env.PORT, () => {
     console.log("Node JS APP Running ", process.env.PORT)
-})
+});
+
+export default app;
